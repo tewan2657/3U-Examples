@@ -168,7 +168,7 @@ public class GUIExample extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // grab the birth and current year as a s
+        // grab the birth and current year as a string
     String birthText = birthyearinput.getText();
     String currentText = currentyearinput.getText();
     // convert Strings to integers
