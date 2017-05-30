@@ -31,6 +31,8 @@ public class PongGame extends JComponent {
     long desiredTime = (1000) / desiredFPS;
 
 
+    
+    
     // YOUR GAME VARIABLES WOULD GO HERE
 
        //Constructing Players
@@ -112,7 +114,7 @@ public class PongGame extends JComponent {
         //sets color 
         g.setColor(Color.red);
         g.drawString("" + player1Score, WIDTH/2 - 100, 75);
-        g.drawString("" + player1Score, WIDTH/2 + 50, 75);
+        g.drawString("" + player2Score, WIDTH/2 + 50, 75);
 
         
         // GAME DRAWING ENDS HERE
@@ -148,6 +150,23 @@ public class PongGame extends JComponent {
             // GAME LOGIC STARTS HERE 
             
             collisions();
+        
+            if(ball.x <= 0){
+                resetBall();
+                player2Score++;
+            }
+            
+            if(ball.x >= WIDTH){
+                resetBall();
+                player1Score++;
+            }
+            
+
+                if(player1Score == 10 || player2Score == 10){
+                    done = true;
+               }
+            
+            
             
             //player 2 movement 
             if(upPressed){     
@@ -165,11 +184,13 @@ public class PongGame extends JComponent {
                 player1.y = player1.y + 5;
             }
             
-            //Update x coordinates every second
+         
+                   //Update x coordinates every second
             ball.x += velocityX;
             //update y coordinates every second 
             ball.y += velocityY;
             
+          
             
             // GAME LOGIC ENDS HERE 
             // update the drawing (calls paintComponent)
@@ -309,5 +330,12 @@ public class PongGame extends JComponent {
          player2.y = player2.y - 5;
      }
 }
+   
+     public void resetBall(){
+         ball.x = WIDTH/2;
+         ball.y = HEIGHT/2;
+     }
+     
+
      
 }
